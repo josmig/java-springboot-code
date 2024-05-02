@@ -4,6 +4,15 @@ public class User {
     
     private String name;
     private String lastName;
+    private String email;
+    
+    public User(){
+
+    }
+    public User(String name, String lastName, String email) {
+        this(name,lastName); // con esto traemos el otro constructor
+        this.email = email;
+    }
 
     public User(String name, String lastName) {
         this.name = name;
@@ -21,6 +30,14 @@ public class User {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     

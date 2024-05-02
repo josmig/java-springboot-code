@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleafg.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
+    <!-- <div th:if="${ users.size() ==0 }">No tiene elementos por el momento</div> -->
+    <div th:if="${ users.isEmpty()}">No tiene elementos por el momento</div> <!--cuando este vacio mostramos esto-->
+    
+    <table th:if="${ not users.isEmpty()}" border="1"> <!--cuando no este vacio mostramos esto la tabla-->
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="person : ${users}">
+                <td th:text="${person.name}"></td>
+                <td th:text="${person.lastName}"></td>
+                <td th:if="${person.email}" th:text="${person.email}"></td>
+                <td th:if="${not (person.email != null)}" th:text="${'no tiene correo registrado'}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
