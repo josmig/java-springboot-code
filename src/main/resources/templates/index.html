@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleafg.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <!-- .\mvnw springboot:run -->
+    <h1 th:text="${title}"></h1>
+    <ul>
+        <li th:text="${usuario.name}"></li>
+        <li th:text="${usuario.lastName}"></li>
+        <li th:if="${usuario.email}" th:text="${usuario.email}"></li>
+        <li th:if="${not (usuario.email != null )}" th:text="${'no tiene correo electronico'}"></li>
+    </ul>
+
+</body>
+</html>
